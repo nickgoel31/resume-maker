@@ -290,7 +290,7 @@ const CreateResumePage = () => {
 
                     <div className="grid grid-cols-1 w-full gap-3">
                         {educations.map((education, index) => (
-                            <div key={index} className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
+                            <div className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
                                 <div className="line-clamp-1">
                                     {education.degree}
                                 </div>
@@ -309,7 +309,7 @@ const CreateResumePage = () => {
 
                     <div className="grid grid-cols-1 w-full gap-3">
                         {skills.map((skill, index) => (
-                            <div key={index} className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
+                            <div className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
                                 <div className="line-clamp-1">
                                     {skill.name}
                                 </div>

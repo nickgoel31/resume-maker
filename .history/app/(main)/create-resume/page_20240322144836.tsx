@@ -70,20 +70,7 @@ export type Skill = {
 
 const CreateResumePage = () => {
 
-    
-
-    const [experiences, setExperiences] = useState<Experience[]>([])
-    const [educations, setEducations] = useState<Education[]>([])
-    const profilePic = useRef<HTMLInputElement>(null);
-
-    const [selectedTheme, setSelectedTheme] = useState<number>(1);
-
-    const [error, setError] = useState<string>("");
-    const [skills, setSkills] = useState<Skill[]>([])
-
-
     let createdRes;
-    
 
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -114,7 +101,7 @@ const CreateResumePage = () => {
         setExperiences(newExperiences)
     }
 
-    
+    const [educations, setEducations] = useState<Education[]>([])
 
     const handleEducationAdd = (education:Education) => {
         setEducations([...educations, education])
@@ -124,7 +111,7 @@ const CreateResumePage = () => {
         setEducations(newEducation)
     }
 
-    
+    const [skills, setSkills] = useState<Skill[]>([])
 
     const handleSkillAdd = (skill:Skill) => {
         setSkills([...skills, skill])
@@ -134,6 +121,12 @@ const CreateResumePage = () => {
         setSkills(newSkills)
     }
 
+    const profilePic = useRef<HTMLInputElement>(null);
+
+    const [selectedTheme, setSelectedTheme] = useState<number>(1);
+
+    const [error, setError] = useState<string>("");
+    
     function onSubmit(values: z.infer<typeof formSchema>) {
 
         const selectedFile = profilePic?.current?.files?.[0];
@@ -271,7 +264,7 @@ const CreateResumePage = () => {
 
                     <div className="grid grid-cols-1 w-full gap-3">
                         {experiences.map((experience, index) => (
-                            <div key={index} className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
+                            <div className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
                                 <div className="line-clamp-1">
                                     {experience.jobTitle}
                                 </div>
@@ -290,7 +283,7 @@ const CreateResumePage = () => {
 
                     <div className="grid grid-cols-1 w-full gap-3">
                         {educations.map((education, index) => (
-                            <div key={index} className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
+                            <div className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
                                 <div className="line-clamp-1">
                                     {education.degree}
                                 </div>
@@ -309,7 +302,7 @@ const CreateResumePage = () => {
 
                     <div className="grid grid-cols-1 w-full gap-3">
                         {skills.map((skill, index) => (
-                            <div key={index} className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
+                            <div className="add-btn rounded border p-3 bg-white text-sm font-semibold flex gap-4 items-center flex-wrap justify-between">
                                 <div className="line-clamp-1">
                                     {skill.name}
                                 </div>
